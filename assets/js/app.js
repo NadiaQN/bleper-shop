@@ -1,17 +1,28 @@
+// Aquí agrego los paquetes que necesitare
+// Express es un framework de node.js
 const express = require('express');
-const ejs = require('ejs');
+// Pug sirve para hacer templates en node.js
+const pug = require('pug');
+// El sdk de paypal para usar el pago
 const paypal = require('paypal-rest-sdk');
 
+// Configuro paypal con mis credenciales
 paypal.configure({
   'mode': 'sandbox', // sandbox or live
   'client_id': 'AUnoh-maX76S09iOE5Ai6wBDv8LGwVzdlNo4J97UrQhdEfisuIa0FBOx5zh3BqCwHhrj50HBP9eqhc2g',
   'client_secret': 'EKA-QG_hJWG1phsg7xbGy2QuIOzZahRvhAZtVzR0NbY1GN4aDIGeBdEpu9wG48MypMK1ExRf72aPBDNp'
 });
 
+// Llamo a express para poder usar sus metodos
 const app = express();
 
-app.set('view engine', 'ejs');
+// Aquí llamo a los templates que creare
+app.set('view engine', 'pug');
 app.get('/', (req, res) => res.render('index'));
+app.get('/success', (req, res) => res.render('success'));
+app.use(express.static(__dirname + '/assets'));
+
+// Acá creo un Json con los datos del objeto a comprar y las urls de redireccion
 app.post('/pay', (req, res) => {
   const createPaymentJson = {
     'intent': 'sale',
@@ -40,7 +51,7 @@ app.post('/pay', (req, res) => {
     }]
   };
 
-
+  // Desde aquí es la función que crea el pago y te redirecciona a paypal
   paypal.payment.create(createPaymentJson, function(error, payment) {
     if (error) {
       throw error;
@@ -79,6 +90,8 @@ app.get('/success', (req, res) => {
   });
 });
 
+// Esta linea redirecciona la pagina en caso de error en la compra
 app.get('/cancel', (req, res) => res.send('Cancelled'));
 
+// Aquí se crea el local host
 app.listen(3000, () => console.log('Server Started'));
