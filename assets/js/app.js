@@ -20,7 +20,7 @@ const app = express();
 app.set('view engine', 'pug');
 app.get('/', (req, res) => res.render('index'));
 app.get('/success', (req, res) => res.render('success'));
-app.use(express.static(__dirname + '/assets'));
+app.use(express.static('../../assets'));
 
 // Acá creo un Json con los datos del objeto a comprar y las urls de redireccion
 app.post('/pay', (req, res) => {
