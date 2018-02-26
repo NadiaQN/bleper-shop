@@ -9,8 +9,8 @@
   "author": "Nadia, Ariella, Maria Jose",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "paypal-rest-sdk": "^1.8.1"
+    "paypal-rest-sdk": "^1.8.1",
+    "pug": "^2.0.0-rc.4"
   }
 }
