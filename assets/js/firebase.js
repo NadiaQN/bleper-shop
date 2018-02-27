@@ -3,18 +3,19 @@ $(document).ready(function() {
   $('.modal').modal();
 });
 var provider = new firebase.auth.GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 $('#button-google').click(function() {
   firebase.auth().signInWithPopup(provider).then(function(data) {
     var user = data.user;
     console.log(user);
     var name = user.displayName;
-    $('h3').text(user.displayName);
+    $('#name').text(user.displayName);
     console.log(user.displayName);
   }).catch(function(error) {
     console.log(error);
   });
 });
-// detectamos si el usuario esta logueado o no
+/* detectamos si el usuario esta logueado o no*/
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     $('h3').text(user.displayName);

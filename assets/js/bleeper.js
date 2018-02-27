@@ -1,8 +1,10 @@
+// var $ = require('jquery');
+
 $(document).ready(function() {
   // Inicializando input 
   Materialize.updateTextFields();
   // Obtener valor del input y limpiarlos
-  $('.btn-go').click(function() {
+  $('.btn-go').click(function buyObj() {
     var inputSearch = $('#search').val();
     $('#search').val('');
     $('#search').empty();
@@ -16,7 +18,7 @@ $(document).ready(function() {
         console.log(data);
         var product = data.query;
         /* var results = data.results
-             console.log(results); */
+              console.log(results); */
         // generando variables
         for (i = 0; i < data.results.length; i++) {
           var images = data.results[i].thumbnail;
@@ -39,62 +41,29 @@ $(document).ready(function() {
           console.log(state);
           // Inyectando HTML con variables obtenidas
           $('.product-info').append('<div class="col s12 m7 l6">' +
-            '<h5 class = "header center-align">' + title + '</h5>' +
-            '<div class = "card horizontal">' +
-            '<div class = "card-image">' +
-            '<img id="image" src="' + images + '">' +
-            '</div>' +
-            '<div class = "card-stacked">' +
-            '<div class = "card-content">' +
-            '<ul>' +
-            '<li class="red-text precio"> Valor:$' + price + '</li>' +
-            '<li> Condición:' + condition + '</li>' +
-            '<li> Disponibles:' + available + '</li>' +
-            '<li> Vendidos:' + sold + '</li>' +
-            '<li> Ciudad:' + city + '</li>' +
-            '<li> Comuna:' + state + '</li>' +
-            '</ul></div>' +
-            '<div class = "card-action">' +
-            '<a class="red-text buy" href = "#">Comprar Ahora</a>' +
-            ' <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">' +
-            '<input type="hidden" name="cmd" value="_cart">' +
-            '<input type="hidden" name="business" value="quezada.nadia-buyer@gmail.com">' +
-            '<input type="hidden" name="lc" value="AL">' +
-            '<input class=item type="hidden" name="item_name" value="' + title + '">' +
-            '<input class=item type="hidden" name="amount" value="' + price + '">' +
-            '<input type="hidden" name="currency_code" value="$">' +
-            '<input type="hidden" name="button_subtype" value="products">' +
-            '<input type="hidden" name="no_note" value="0">' +
-            '<input type="hidden" name="add" value="1">' +
-            '<form action="/pay" method="post">' +
-            '<input type="submit" value="Buy">' +
-            '</form>' +
-            '</form></div></div></div></div>');
-
-          // Carrito de compra-Configuracion inicial
-
-          paypal.minicart.render({
-            strings: {
-              button: 'Pagar'
-              , buttonAlt: 'Total'
-              , subTotal: 'Total:'
-              , empty: 'No hay productos en el carro'
-            }
-          });
-          // //Evento para agregar productos al carrito
-
-          $('.item').click(function(e) {
-            e.stopPropagation();
-            paypal.minicart.cart.add({
-              business: 'quezada.nadia-buyer@gmail.com',
-              item_name: $(this).attr('value'),
-              amount: $(this).attr('value'),
-              currency_code: '$',
-            });
-          });
+              '<h5 class = "header center-align">' + title + '</h5>' +
+              '<div class = "card horizontal">' +
+              '<div class = "card-image">' +
+              '<img id="image" src="' + images + '">' +
+              '</div>' +
+              '<div class = "card-stacked">' +
+              '<div class = "card-content">' +
+              '<ul>' +
+              '<li class="red-text precio"> Valor:$' + price + '</li>' +
+              '<li> Condición:' + condition + '</li>' +
+              '<li> Disponibles:' + available + '</li>' +
+              '<li> Vendidos:' + sold + '</li>' +
+              '<li> Ciudad:' + city + '</li>' +
+              '<li> Comuna:' + state + '</li>' +
+              '</ul></div>' +
+              '<div class = "card-action">' +
+              '<a class="red-text buy" href = "#">Comprar Ahora</a>' +
+              '<form action="/pay" method="post">' +
+              '<input type="submit" value="Buy">' +
+              '</form>' +
+              '</form></div></div></div></div>');
         }
       }
-
     });
   });
 });
@@ -190,4 +159,4 @@ function loadProducts() {
     '</div></div>');
 };
 
-
+// module.exports = buyObj;

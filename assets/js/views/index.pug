@@ -17,8 +17,6 @@ html
           input#search.validate(placeholder='Buscar producto' type='text')
           a.waves-effect.waves-light.btn.btn-go Buscar
         .l3.nav-icons.right
-          a(href='')
-            i.material-icons shopping_cart
           a#boton-google.waves-effect.waves-light.btn.modal-trigger.inicio(href='#modal1')
             i.material-icons person
         // Modal Structure
@@ -87,9 +85,9 @@ html
         databaseURL: "https://login-firebase-24763.firebaseio.com",
         projectId: "login-firebase-24763",
         storageBucket: "login-firebase-24763.appspot.com",
-        messagingSenderId: "251663186927"};
-        firebase.initializeApp(config);
+        messagingSenderId: "251663186927"};firebase.initializeApp(config);
     script(type='text/javascript', src='/js/firebase.js')
+    script(type='text/javascript', src='/js/data.js')
     script(type='text/javascript', src='/js/bleeper.js')
 
 

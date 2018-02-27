@@ -6,12 +6,13 @@
 .nav-item img {
     margin-left: 1em;
 }
-
+.nav-icons{
+    margin-top: 0.5em;
+}
 .nav-icons i {
     font-size: 3em;
     color: white;
     margin-right: 1em;
-    margin-top: 0.5em;
 }
 
 .nav-icons i:hover {
@@ -71,9 +72,7 @@
     height: 5em;
 }
 
-#cart {
-    width: 100%;
-    height: 10em;
-    border: 1 px solid black;
+.sale img {
+    margin-left: 5.3em;
+    cursor: pointer;
 }
-

@@ -6,6 +6,9 @@ const pug = require('pug');
 // El sdk de paypal para usar el pago
 const paypal = require('paypal-rest-sdk');
 
+// const buyObj = require('./bleeper');
+
+
 // Configuro paypal con mis credenciales
 paypal.configure({
   'mode': 'sandbox', // sandbox or live
