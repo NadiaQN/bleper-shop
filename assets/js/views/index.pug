@@ -21,18 +21,18 @@ body(onload="loadProyect")
         .i.material-icons shopping_cart
         a.waves-effect.waves-light.btn.modal-trigger.inicio(href='#modal1')
           i.material-icons person
-        a#cerrar.usuario(href='#') Cerrar Sesion
-
-    
-      // Modal Structure
-      #modal1.modal
-        .modal-content
-          h4.align-center Ingresar Usuario
-          a#boton-google.btn.align-center
-            i.fab.fa-google-plus-g
-            | Google
-        .modal-footer
-          a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Cerrar
+        .usuario
+        h4#name
+        a#cerrar(href='#') Cerrar Sesion
+         // Modal Structure
+        #modal1.modal
+          .modal-content
+            h4.align-center Ingresar Usuario
+            a#boton-google.btn.align-center
+              i.fab.fa-google-plus-g
+              | Google
+          .modal-footer
+            a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Cerrar
   // Seccion carrito de compras
   section
     .row.fixed-margin
