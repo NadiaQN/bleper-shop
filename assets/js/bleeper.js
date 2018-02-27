@@ -88,7 +88,7 @@ $(document).ready(function () {
                         e.stopPropagation();
                         paypal.minicart.cart.add({
                             business: 'quezada.nadia-buyer@gmail.com',
-                            item_name: $(this).attr('title'),
+                            item_name: $(this).attr('value'),
                             amount: $(this).attr('value'),
                             currency_code: '$',
                         })
