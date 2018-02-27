@@ -1,4 +1,3 @@
-
 html
   head
     meta(charset='UTF-8')
@@ -81,6 +80,17 @@ html
     script(defer='' src='https://use.fontawesome.com/releases/v5.0.6/js/all.js')
     script(type='text/javascript' src='https://code.jquery.com/jquery-3.2.1.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
+    script.
+      var config = {
+        apiKey: "AIzaSyBuysq5EB_NQPkQerG2b_qaygke3MLfJ7M", 
+        authDomain: "login-firebase-24763.firebaseapp.com",
+        databaseURL: "https://login-firebase-24763.firebaseio.com",
+        projectId: "login-firebase-24763",
+        storageBucket: "login-firebase-24763.appspot.com",
+        messagingSenderId: "251663186927"};
+        firebase.initializeApp(config);
+    script(type='text/javascript', src='/js/firebase.js')
     script(type='text/javascript', src='/js/bleeper.js')
+
 
 
