@@ -48,7 +48,7 @@ $(document).ready(function () {
                         '<div class = "card-stacked">' +
                         '<div class = "card-content">' +
                         '<ul>' +
-                        '<li id="foto1" draggable="true" class="red-text precio"> Precio:$' + price + '</li>' +
+                        '<li class="red-text precio"> Valor:$' + price + '</li>' +
                         '<li> Condición:' + condition + '</li>' +
                         '<li> Disponibles:' + available + '</li>' +
                         '<li> Vendidos:' + sold + '</li>' +
@@ -57,13 +57,49 @@ $(document).ready(function () {
                         '</ul></div>' +
                         '<div class = "card-action">' +
                         '<a class="red-text buy" href = "#">Comprar Ahora</a>' +
-                        '<a class="teal-text shopping" href = "#">Agregar al carro</a>' +
-                        '</div></div></div></div>')
+                        ' <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">' +
+                        '<input type="hidden" name="cmd" value="_cart">' +
+                        '<input type="hidden" name="business" value="quezada.nadia-buyer@gmail.com">' +
+                        '<input type="hidden" name="lc" value="AL">' +
+                        '<input class=item type="hidden" name="item_name" value="' + title + '">' +
+                        '<input class=item type="hidden" name="amount" value="' + price + '">' +
+                        '<input type="hidden" name="currency_code" value="$">' +
+                        '<input type="hidden" name="button_subtype" value="products">' +
+                        '<input type="hidden" name="no_note" value="0">' +
+                        '<input type="hidden" name="add" value="1">' +
+                        '<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">' +
+                        '<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">' +
+                        '<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">' +
+                        '</form></div></div></div></div>')
 
-                    $(".shopping").click(function () {
-                        $("#cart").append();
-                        $("#cart").append("");
-                    })
+                    //Carrito de compra-Configuracion inicial
+
+                    paypal.minicart.render({
+                        strings: {
+                            button: 'Pagar'
+                            , buttonAlt: "Total"
+                            , subTotal: 'Total:'
+                            , empty: 'No hay productos en el carro'
+                        }
+                    });
+                    // //Evento para agregar productos al carrito
+
+                    $(".item").click(function (e) {
+                        e.stopPropagation();
+                        paypal.minicart.cart.add({
+                            business: 'quezada.nadia-buyer@gmail.com',
+                            item_name: $(this).attr('title'),
+                            amount: $(this).attr('value'),
+                            currency_code: '$',
+                        })
+                    });
+
+
+
+
+
+
+
 
 
                 }
@@ -151,10 +187,10 @@ function loadProducts() {
         '<a href=""><i class="large material-icons">av_timer</i></a>' +
         '</div></div>')
 
-    $('#more').append('<div class="col s12 m5 l4">' +
+    $('#more').append('<div class="col s12 m5 l4 sale">' +
         '<div class="card-panel teal lighten-3">' +
-        '<h4 class="center-align white-text">Especial Mochilas</h4>' +
-        '<img src= "assets/images/.jpeg">' +
+        '<h4 class="center-align white-text">Especial Muebles</h4>' +
+        '<img class="center-align width="200px" height="200px"src="assets/images/mueble.png">' +
         '</div></div>')
 
     $('#more').append('<div class="col s12 m5 l4">' +
@@ -164,7 +200,5 @@ function loadProducts() {
         '<a href=""><i class="large material-icons">av_timer</i></a>' +
         '</div></div>')
 };
-
-//Carrito de compra
 
 
