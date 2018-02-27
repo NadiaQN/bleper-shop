@@ -1,94 +1,86 @@
 
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  meta(http-equiv='X-UA-Compatible' content='ie=edge')
-  title Document
-  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
-  link(rel='stylesheet' href='assets/style.css')
-body(onload="loadProducts")
-  // Header con buscador
-  header
-    .row.nav-item.fixed-margin
-      .col.l3
-        img(width='100px' height='100px' src='assets/images/Blue Bag Shopping Logo.jpg' alt='logo')
-      .input-field.col.s6.center-align
-        input#search.validate(placeholder='Buscar producto' type='text')
-        a.waves-effect.waves-light.btn.btn-go Buscar
-      .l3.nav-icons.right
-        a(href='')
-          i.material-icons shopping_cart
-        a.waves-effect.waves-light.btn.modal-trigger.inicio(href='#modal1')
-          i.material-icons person
-      // Modal Structure
-      #modal1.modal
-        .modal-content
-          h4 Ingresar Usuario
-          a#btn-seach.waves-effect.waves-light.btn
-            i.fab.fa-google-plus-g
-            | Google
-        .modal-footer
-          a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Cerrar
-  // Seccion carrito de compras
-  section
-    .row.fixed-margin
-  // Seccion resultado de la busqueda
-  section
-    .row.fixed-margin.product-info
-  // Seccion imagen temporada
-  section
-    .row.fixed-margin
-      .col.s12.m12.l12.top-item.center-align
-        button.btn.waves-effect.waves-light.btn-sale(type='submit' name='action')
-          | Ver Ofertas
-  // Seccion productos recomendads
-  section
-    .container
-      #recomended-products.row
-        h4 Productos Recomendados
-  // Seccion especiales
-  section
-    #more.row
-  // Seccion productos populares
-  section
-    .container.popular
-      .row
-        h4 Populares
-        .col.s12.m7.l2.border
-          a(href='')
-            i.large.material-icons  phone_android
-        .col.s12.m7.l2.border
-          a(href='')
-            i.large.material-icons  drive_eta
-        .col.s12.m7.l2.border
-          a(href='')
-            i.large.material-icons  desktop_windows
-        .col.s12.m7.l2.border
-          a(href='')
-            i.large.material-icons  directions_bike
-        .col.s12.m7.l2.border
-          a(href='')
-            i.large.material-icons  camera_alt 
-        .col.s12.m7.l2.border
-          a.center-align(href=' ')
-            i.large.material-icons  child_friendly 
-  // Footer
-  footer
-    .row
-      .col.s12.m12.l12.end-page
-  script(defer='' src='https://use.fontawesome.com/releases/v5.0.6/js/all.js')
-  script(type='text/javascript' src='https://code.jquery.com/jquery-3.2.1.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
-  script(src='assets/bleeper.js')
-  script(src='assets/data.js')
-  script(src='assets/js/firebase.js')
-
 html
   head
-    title Pay Pal
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    title Bleeper Shop
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
     link(rel='stylesheet', href='/css/main.css')
-  body
+  body(onload="loadProducts")
+    // Header con buscador
+    header
+      .row.nav-item.fixed-margin
+        .col.l3
+          img(width='100px' height='100px' src='assets/images/Blue Bag Shopping Logo.jpg' alt='logo')
+        .input-field.col.s6.center-align
+          input#search.validate(placeholder='Buscar producto' type='text')
+          a.waves-effect.waves-light.btn.btn-go Buscar
+        .l3.nav-icons.right
+          a(href='')
+            i.material-icons shopping_cart
+          a.waves-effect.waves-light.btn.modal-trigger.inicio(href='#modal1')
+            i.material-icons person
+        // Modal Structure
+        #modal1.modal
+          .modal-content
+            h4 Ingresar Usuario
+            a#btn-seach.waves-effect.waves-light.btn
+              i.fab.fa-google-plus-g
+              | Google
+          .modal-footer
+            a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Cerrar
+    // Seccion carrito de compras
+    section
+      .row.fixed-margin
+    // Seccion resultado de la busqueda
+    section
+      .row.fixed-margin.product-info
+    // Seccion imagen temporada
+    section
+      .row.fixed-margin
+        .col.s12.m12.l12.top-item.center-align
+          button.btn.waves-effect.waves-light.btn-sale(type='submit' name='action')
+            | Ver Ofertas
+    // Seccion productos recomendads
+    section
+      .container
+        #recomended-products.row
+          h4 Productos Recomendados
+    // Seccion especiales
+    section
+      #more.row
+    // Seccion productos populares
+    section
+      .container.popular
+        .row
+          h4 Populares
+          .col.s12.m7.l2.border
+            a(href='')
+              i.large.material-icons  phone_android
+          .col.s12.m7.l2.border
+            a(href='')
+              i.large.material-icons  drive_eta
+          .col.s12.m7.l2.border
+            a(href='')
+              i.large.material-icons  desktop_windows
+          .col.s12.m7.l2.border
+            a(href='')
+              i.large.material-icons  directions_bike
+          .col.s12.m7.l2.border
+            a(href='')
+              i.large.material-icons  camera_alt 
+          .col.s12.m7.l2.border
+            a.center-align(href=' ')
+              i.large.material-icons  child_friendly 
+    // Footer
+    footer
+      .row
+        .col.s12.m12.l12.end-page
+    script(defer='' src='https://use.fontawesome.com/releases/v5.0.6/js/all.js')
+    script(type='text/javascript' src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
+    script(type='text/javascript', src='/js/bleeper.js')
+
 
