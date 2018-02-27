@@ -6,9 +6,9 @@ head
   title Document
   link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
-  link(rel='stylesheet' href='assets/style.css')
-body(onload="loadProducts")
-  // Header con buscador
+  link(rel='stylesheet' href='assets/style.css'
+body(onload="loadProyect")
+  // Header con buscado
   header
     .row.nav-item.fixed-margin
       .col.l3
@@ -18,14 +18,17 @@ body(onload="loadProducts")
         a.waves-effect.waves-light.btn.btn-go Buscar
       .l3.nav-icons.right
         a(href='')
-          i.material-icons shopping_cart
+        .i.material-icons shopping_cart
         a.waves-effect.waves-light.btn.modal-trigger.inicio(href='#modal1')
           i.material-icons person
+        a#cerrar.usuario(href='#') Cerrar Sesion
+
+    
       // Modal Structure
       #modal1.modal
         .modal-content
-          h4 Ingresar Usuario
-          a#btn-seach.waves-effect.waves-light.btn
+          h4.align-center Ingresar Usuario
+          a#boton-google.btn.align-center
             i.fab.fa-google-plus-g
             | Google
         .modal-footer
@@ -77,9 +80,21 @@ body(onload="loadProducts")
   footer
     .row
       .col.s12.m12.l12.end-page
+  script(src='https://www.gstatic.com/firebasejs/4.10.1/firebase.js')
+  script.
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyBuysq5EB_NQPkQerG2b_qaygke3MLfJ7M",
+    authDomain: "login-firebase-24763.firebaseapp.com",
+    databaseURL: "https://login-firebase-24763.firebaseio.com",
+    projectId: "login-firebase-24763",
+    storageBucket: "login-firebase-24763.appspot.com",
+    messagingSenderId: "251663186927"
+    };
+    firebase.initializeApp(config);
   script(defer='' src='https://use.fontawesome.com/releases/v5.0.6/js/all.js')
   script(type='text/javascript' src='https://code.jquery.com/jquery-3.2.1.min.js')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
   script(src='assets/bleeper.js')
   script(src='assets/data.js')
-  script(src='assets/js/firebase.js')
+  script(src='assets/firebase.js')
